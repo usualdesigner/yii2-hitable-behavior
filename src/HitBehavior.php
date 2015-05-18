@@ -18,10 +18,12 @@ use yii\db\ActiveRecord;
  *
  * @author Aleksey Bernackiy <usualdesigner@gmail.com>
  */
-class Hit extends Behavior
+class HitBehavior extends Behavior
 {
     public $attribute = 'hit_count';
     public $group;
+
+    public static $table_name = '{{%hits}}';
 
     public function init()
     {
@@ -30,7 +32,7 @@ class Hit extends Behavior
         }
 
         if (!$this->group) {
-            $this->group = get_class($this->owner);
+            throw new IntegrityException('Group is not defined');
         }
 
         parent::init();
@@ -38,6 +40,7 @@ class Hit extends Behavior
 
     public function touch()
     {
-
+        $hit = new \HitModel();
+        $hit->save();
     }
 }
