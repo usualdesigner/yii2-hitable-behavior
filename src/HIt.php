@@ -12,7 +12,7 @@ use yii\base\Behavior;
 use yii\db\ActiveRecord;
 
 /**
- * HItCounterBehavior
+ * HItBehavior
  *
  * @property ActiveRecord $owner
  *
@@ -20,8 +20,24 @@ use yii\db\ActiveRecord;
  */
 class Hit extends Behavior
 {
+    public $attribute = 'hit_count';
+    public $group;
+
+    public function init()
+    {
+        if (!$this->attribute) {
+            throw new IntegrityException('Attribute is not defined');
+        }
+
+        if (!$this->group) {
+            $this->group = get_class($this->owner);
+        }
+
+        parent::init();
+    }
+
     public function touch()
     {
-        
+
     }
 }
