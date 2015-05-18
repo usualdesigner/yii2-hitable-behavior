@@ -18,8 +18,10 @@ use yii\db\ActiveRecord;
  *
  * @author Aleksey Bernackiy <usualdesigner@gmail.com>
  */
-
 class Hit extends Behavior
 {
-
+    public function touch()
+    {
+        
+    }
 }
