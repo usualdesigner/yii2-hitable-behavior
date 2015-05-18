@@ -10,6 +10,7 @@ namespace usualdesigner\behavior;
 use Yii;
 use yii\base\Behavior;
 use yii\db\ActiveRecord;
+use yii\db\Expression;
 
 /**
  * HItBehavior
@@ -23,7 +24,7 @@ class HitBehavior extends Behavior
     public $attribute = 'hit_count';
     public $group;
 
-    public static $table_name = '{{%hits}}';
+    public $table_name = '{{%hits}}';
 
     public function init()
     {
@@ -40,7 +41,15 @@ class HitBehavior extends Behavior
 
     public function touch()
     {
-        $hit = new \HitModel();
-        $hit->save();
+        $this->owner->getDb()
+            ->createCommand()
+            ->insert($this->table_name, [
+                'session_id' => Yii::$app->getSession()->getId(),
+                'ip' => Yii::$app->getRequest()->getUserIP(),
+                'target_group' => $this->group,
+                'target_pk' => $this->owner->primaryKey,
+                'created_at' => new Expression('NOW()'),
+            ])
+            ->execute();
     }
 }
