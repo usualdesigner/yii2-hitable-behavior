@@ -1,5 +1,7 @@
 <?php
 
+namespace usualdesigner\behavior;
+
 class HitModel extends \yii\db\ActiveRecord
 {
     /**
