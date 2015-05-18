@@ -33,7 +33,7 @@ class HitBehavior extends Behavior
         }
 
         if (!$this->group) {
-            throw new IntegrityException('Group is not defined');
+            $this->group = get_class($this->owner);
         }
 
         parent::init();
