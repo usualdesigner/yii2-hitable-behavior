@@ -1,0 +1,27 @@
+{
+    "name": "usualdesigner/yii2-behavior-hit",
+    "keywords": [
+        "yii2",
+        "hit counter"
+    ],
+    "type": "yii2-extension",
+    "license": "BSD-3-Clause",
+    "require": {
+        "yiisoft/yii": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.8@dev",
+        "phpunit/dbunit": "^1.3@dev"
+    },
+    "authors": [
+        {
+            "name": "Aleksey Bernackiy",
+            "email": "usualdesigner@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "usualdesigner\\behavior\\": "src"
+        }
+    }
+}
