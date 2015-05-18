@@ -44,7 +44,7 @@ class HitBehavior extends Behavior
         $this->owner->getDb()
             ->createCommand()
             ->insert($this->table_name, [
-                'session_id' => Yii::$app->getSession()->getId(),
+                'user_agent' => Yii::$app->getRequest()->getUserAgent(),
                 'ip' => Yii::$app->getRequest()->getUserIP(),
                 'target_group' => $this->group,
                 'target_pk' => $this->owner->primaryKey,
