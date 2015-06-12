@@ -33,7 +33,7 @@ class HitCountableBehavior extends Behavior
     /**
      * @var int
      */
-    public $delay = 5;
+    public $delay = 86400;
     /**
      * @var string
      */
