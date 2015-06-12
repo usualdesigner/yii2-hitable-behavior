@@ -1,3 +1,5 @@
+### Main migration
+
 ```php
 $this->createTable('{{%hits}}', [
     'hit_id' => Schema::TYPE_PK,
@@ -7,4 +9,29 @@ $this->createTable('{{%hits}}', [
     'target_pk' => Schema::TYPE_INTEGER . ' NOT NULL',
     'created_at' => Schema::TYPE_INTEGER . ' NOT NULL',
 ]);
+```
+
+### Basic usage
+
+```php
+<?php
+
+class Post extends \yii\db\ActiveRecord
+{
+    public function behaviors()
+    {
+        return [
+            'hit' => [
+                'class' => \usualdesigner\behavior\HitCountableBehavior::className(),
+                'attribute' => 'hits_count',    //attribute which should contain uniquie hits value
+                'group' => false,               //group name of the model (class name by default)
+                'delay' => 60 * 60,             //register the same visitor every hour
+                'table_name' => '{{%hits}}'     //table with hits data
+            ]
+        ];
+    }
+}
+
+$post = Post::findOne(1);
+$post->getBehavior('hit')->touch();
 ```
