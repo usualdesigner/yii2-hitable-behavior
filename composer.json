@@ -1,5 +1,5 @@
 {
-    "name": "usualdesigner/yii2-behavior-hit",
+    "name": "usualdesigner/yii2-hitable-behavior",
     "keywords": [
         "yii2",
         "hit counter"
