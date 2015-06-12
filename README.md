@@ -11,7 +11,7 @@ $this->createTable('{{%hits}}', [
 ]);
 ```
 
-### Basic usage
+### Configuring
 
 ```php
 <?php
@@ -31,7 +31,11 @@ class Post extends \yii\db\ActiveRecord
         ];
     }
 }
+```
 
+### Basic usage
+
+```php
 $post = Post::findOne(1);
 
 $post->getBehavior('hit')->touch();
