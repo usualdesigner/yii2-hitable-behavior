@@ -38,7 +38,10 @@ class Post extends \yii\db\ActiveRecord
 ```php
 $post = Post::findOne(1);
 
+//increase counter
 $post->getBehavior('hit')->touch();
 
+
+//get hits count
 echo $post->getBehavior('hit')->getHitsCount();
 ```
