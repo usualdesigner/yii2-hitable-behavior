@@ -5,7 +5,7 @@
  * @license http://opensource.org/licenses/BSD-3-Clause
  */
 
-namespace common\behavior;
+namespace usualdesigner\yii2\behavior;
 
 use Yii;
 use yii\base\Behavior;
