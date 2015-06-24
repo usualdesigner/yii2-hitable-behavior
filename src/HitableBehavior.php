@@ -20,7 +20,7 @@ use yii\db\Query;
  *
  * @author Aleksey Bernackiy <usualdesigner@gmail.com>
  */
-class HitCountableBehavior extends Behavior
+class HitableBehavior extends Behavior
 {
     /**
      * @var string

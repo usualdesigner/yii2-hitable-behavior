@@ -21,7 +21,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "usualdesigner\\behavior\\": "src"
+            "usualdesigner\\yii2\\behavior\\": "src"
         }
     }
 }
