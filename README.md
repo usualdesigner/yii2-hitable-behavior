@@ -2,12 +2,12 @@
 
 ```php
 $this->createTable('{{%hits}}', [
-    'hit_id' => Schema::TYPE_PK,
-    'user_agent' => Schema::TYPE_STRING . ' NOT NULL',
-    'ip' => Schema::TYPE_STRING . ' NOT NULL',
-    'target_group' => Schema::TYPE_STRING . ' NOT NULL',
-    'target_pk' => Schema::TYPE_INTEGER . ' NOT NULL',
-    'created_at' => Schema::TYPE_INTEGER . ' NOT NULL',
+    'hit_id' => $this->primaryKey(),
+    'user_agent' => $this->string()->notNull(),
+    'ip' => $this->string()->notNull(),
+    'target_group' => $this->string()->notNull(),
+    'target_pk' => $this->string()->notNull(),
+    'created_at' => $this->integer()->notNull(),
 ]);
 ```
 
@@ -22,7 +22,7 @@ class Post extends \yii\db\ActiveRecord
     {
         return [
             'hit' => [
-                'class' => \usualdesigner\behavior\HitCountableBehavior::className(),
+                'class' => usualdesigner\yii2\behavior\HitableBehavior::className(),
                 'attribute' => 'hits_count',    //attribute which should contain uniquie hits value
                 'group' => false,               //group name of the model (class name by default)
                 'delay' => 60 * 60,             //register the same visitor every hour
