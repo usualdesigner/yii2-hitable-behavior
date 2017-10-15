@@ -1,3 +1,20 @@
+# Hitable behavior for Yii2
+
+### Installation
+Run command
+
+```
+composer require usualdesigner/yii2-hitable-behavior "dev-master"
+```
+
+or add
+
+```
+"usualdesigner/yii2-hitable-behavior": "dev-master"
+```
+
+to the require section of your `composer.json` file.
+
 ### Main migration
 
 ```php
