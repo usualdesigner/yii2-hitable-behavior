@@ -9,6 +9,7 @@ namespace usualdesigner\yii2\behavior;
 
 use Yii;
 use yii\base\Behavior;
+use yii\db\BaseActiveRecord;
 use yii\db\ActiveRecord;
 use yii\db\IntegrityException;
 use yii\db\Query;
@@ -56,6 +57,9 @@ class HitableBehavior extends Behavior
      */
     public function attach($owner)
     {
+        if (!($owner instanceof BaseActiveRecord)) {
+            throw new \RuntimeException('Owner must be instance of yii\db\BaseActiveRecord');
+        }
         parent::attach($owner);
 
         if (!$this->group) {
