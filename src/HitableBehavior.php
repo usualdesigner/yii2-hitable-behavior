@@ -68,7 +68,7 @@ class HitableBehavior extends Behavior
      */
     public function touch()
     {
-        if ((date('U') - $this->getLatestVisit() > $this->delay) && !$this->getIsBot()) {
+        if ((!$this->delay || (date('U') - $this->getLatestVisit() > $this->delay)) && !$this->getIsBot()) {
             if ($this->storeHit()) {
                 $this->increaseCounter();
             }
