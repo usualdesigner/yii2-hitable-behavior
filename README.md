@@ -64,4 +64,4 @@ echo $post->getBehavior('hit')->getHitsCount();
 ```
 
 ### Tests
-[How to run the tests](test/README.md)
+[How to run the tests](tests/README.md)
