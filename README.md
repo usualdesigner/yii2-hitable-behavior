@@ -62,3 +62,6 @@ $post->getBehavior('hit')->touch();
 //get hits count
 echo $post->getBehavior('hit')->getHitsCount();
 ```
+
+### Tests
+[How to run the tests](test/README.md)
