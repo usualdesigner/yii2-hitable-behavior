@@ -1,0 +1,15 @@
+# Codeception Test Suite Configuration
+#
+# Suite for unit or integration tests.
+
+actor: UnitTester
+modules:
+    enabled:
+        - Filesystem
+        - Asserts
+        - Yii2:
+            configFile: '../../../config/test.php'
+            part: [init, yiiunit, orm, fixtures] # allow to use AR methods
+            cleanup: false # don't wrap test in transaction
+            entryScript: index-test.php
+        - \Helper\Unit
