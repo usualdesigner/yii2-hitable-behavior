@@ -36,6 +36,10 @@ class HitableBehavior extends Behavior
      */
     public $delay = 86400;
     /**
+     * @var \yii\base\Component
+     */
+    public $db = false;
+    /**
      * @var string
      */
     public $table_name = '{{%hits}}';
@@ -48,6 +52,9 @@ class HitableBehavior extends Behavior
         if (!$this->attribute) {
             throw new IntegrityException('Attribute is not defined');
         }
+        
+        if(!$this->db)
+            $this->db = $this->owner->getDb();
 
         parent::init();
     }
@@ -93,7 +100,7 @@ class HitableBehavior extends Behavior
      */
     private function storeHit()
     {
-        return $this->owner->getDb()->createCommand()
+        return $this->db->createCommand()
             ->insert($this->table_name, [
                 'user_agent' => Yii::$app->getRequest()->getUserAgent(),
                 'ip' => Yii::$app->getRequest()->getUserIP(),
