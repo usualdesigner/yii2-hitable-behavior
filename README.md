@@ -39,7 +39,7 @@ class Post extends \yii\db\ActiveRecord
     {
         return [
             'hit' => [
-                'class' => \usualdesigner\yii2\behavior\HitableBehavior::className(),
+                'class' => \usualdesigner\yii2\behavior\HitableBehavior::class(),
                 'attribute' => 'hits_count',    //attribute which should contain uniquie hits value
                 'group' => false,               //group name of the model (class name by default)
                 'delay' => 60 * 60,             //register the same visitor every hour
