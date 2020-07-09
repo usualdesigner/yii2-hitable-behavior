@@ -44,6 +44,7 @@ class Post extends \yii\db\ActiveRecord
                 'group' => false,               //group name of the model (class name by default)
                 'delay' => 60 * 60,             //register the same visitor every hour
                 'table_name' => '{{%hits}}'     //table with hits data
+                'db' => Yii::$app->db,          //cross DB connection (optional)
             ]
         ];
     }
